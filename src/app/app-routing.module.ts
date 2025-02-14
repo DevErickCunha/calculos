@@ -3,21 +3,34 @@ import { RouterModule, Routes } from '@angular/router';
 import { CalculosComponent } from './calculos/calculos.component';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
 
   {
     path:"",
-    component: AppComponent
+    component: LayoutComponent,
+    children: [
+      {
+        path:"home",
+        component: CalculosComponent
+      },
+      {
+        path:"login",
+        component: LoginComponent
+      },
+      {
+        path: "",
+        redirectTo: "home",
+        pathMatch: "full"
+      }
+    ]
   },
+
   {
-    path:"home",
-    component: CalculosComponent
-  },
-  {
-    path:"login",
-    component: LoginComponent
-  },
+    path:"**",
+    redirectTo:"home"
+  }
 ];
 
 @NgModule({ 

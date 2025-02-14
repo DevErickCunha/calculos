@@ -1,0 +1,28 @@
+<!--  TAMANHO COMPLETO DA TELA -->
+<div class="main">
+    <!-- TODO O CONTEUDO DA TELA, FICA DENTRO DE UM DRAWER -->
+    <mat-drawer-container class="example-container" [hasBackdrop]="false">
+
+        <!-- MENU LATERAL -->
+        <mat-drawer #drawer mode="side" opened="true" class="">
+        
+            <!-- CONTEUDO DO MENU LATERAL -->
+            <app-content-side-menu></app-content-side-menu>
+        
+        </mat-drawer>
+
+        <!-- CONTEUDO DA PAGINA -->
+        <mat-drawer-content >
+
+            <!-- NAV -->
+            <app-nav-bar [drawer]=drawer></app-nav-bar>
+
+
+            <!-- BODY / CONTEUDO DA PAGINA -->
+            <div class='m-4'>
+                <router-outlet></router-outlet>
+            </div>
+
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

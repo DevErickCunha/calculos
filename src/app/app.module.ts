@@ -14,12 +14,18 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { LayoutComponent } from './layout/layout.component';
+import { Input1Component } from './utils/forms/input-1/input-1.component';
+import { UtilsModule } from './utils/utils.module';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalculosComponent,
-    LoginComponent
+    LoginComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectModule,
+    UtilsModule,
+    MatDialogModule
   ],
   providers: [
     provideAnimationsAsync()
