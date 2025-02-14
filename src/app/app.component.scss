@@ -1,0 +1,18 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+#menuTitle {
+    font-size: medium;
+    margin-right: 20px;
+}
+
+mat-toolbar {
+    background-color: #1976D2 !important; /* Azul Material Design */
+    color: white !important;
+}
+
+
+mat-sidenav{
+    background-color: rgb(26, 147, 147);
+    width: 10%;
+}

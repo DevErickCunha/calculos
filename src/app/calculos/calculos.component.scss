@@ -1,0 +1,22 @@
+::ng-deep .mat-mdc-form-field {
+    width: 10%; /* Ajuste conforme necessário */
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+    padding: 4px 0 !important;
+    min-height: 30px !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilizando diretamente o input */
+::ng-deep input.mat-mdc-input-element {
+    height: 6px !important;
+    padding: 8px !important;
+    font-size: 12px !important;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: bold;
+}

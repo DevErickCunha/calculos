@@ -1,0 +1,126 @@
+<h2>Indicadores de Produção</h2>
+<form [formGroup]="form" class="example-form">
+    
+<div class="form-group">
+    <label for="SistemaProducao">Sistema de produção </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="text" matInput formControlName="SistemaProducao">
+        @if (form.controls["SistemaProducao"].hasError('required')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+        @if (form.controls["SistemaProducao"].hasError('minlength')) {
+            <mat-error>Prencha com no mínimo <strong>3 caracteres!</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br>
+<div class="form-group">
+    <label for="TaxaMortalidadePreDesmama">Taxa Mortalidade Pré-Desmama (%) </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="number" matInput formControlName="TaxaMortalidadePreDesmama">
+        @if (form.controls['TaxaMortalidadePreDesmama'].hasError('min')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br>
+<div class="form-group">
+    <label for="BezerrosAs">Bezerros As </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="number" matInput formControlName="BezerrosAs">
+        @if (form.controls['TaxaMortalidadePreDesmama'].hasError('min')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br>
+<div class="form-group">
+    <label for="taxaNascMedia">Taxa Nasc. Média </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="number" matInput formControlName="TaxaNascMedia" min="1">
+        @if (form.controls['TaxaMortalidadePreDesmama'].hasError('min')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br>
+<div class="form-group">
+    <label for="txNascVacasMultiparas">Taxa Natalidade Vacas Multiparas </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="number" matInput formControlName="TxNascVacasMultiparas" min="1">
+        @if (form.controls['TaxaMortalidadePreDesmama'].hasError('min')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br>
+    <div class="form-group">
+    <label for="totalTouroVendido">Total touro vendido </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="number" matInput formControlName="TotalTouroVendido" min="1">
+        @if (form.controls['TaxaMortalidadePreDesmama'].hasError('min')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br>
+<div class="form-group">
+    <label for="quantCabecasAnual">Quantidade de cabeças anual </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="number" matInput formControlName="QuantCabecasAnual" min="1">
+        @if (form.controls['TaxaMortalidadePreDesmama'].hasError('min')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br>
+
+<div class="form-group">
+    <label for="totalUAPonderado">Total UAPonderado </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="number" matInput formControlName="TotalUAPonderado" min="1">
+        @if (form.controls['TaxaMortalidadePreDesmama'].hasError('min')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br>
+<div class="form-group">
+    <label for="areaPastagemPerene">Área de Pastagem Perene </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="number" matInput formControlName="AreaPastagemPerene" min="1">
+        @if (form.controls['TaxaMortalidadePreDesmama'].hasError('min')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br>   
+<div class="form-group">
+    <label for="TotalUATrabalho">Total UATrabalho </label>
+    <mat-form-field appearance="outline" density="-2">
+        <input type="number" matInput formControlName="TotalUATrabalho" min="1">
+        @if (form.controls['TaxaMortalidadePreDesmama'].hasError('min')) {
+            <mat-error>Preenchimento <strong>Obrigatório</strong></mat-error>
+        }
+    </mat-form-field>
+</div>
+<br> 
+<section>
+    <div class="example-button-row">
+        <button mat-stroked-button (click)="salvarValores()">Calcular</button>
+    </div>
+</section>
+
+</form>
+<br>
+@if (calculado) {
+<div>
+    <h3>Resultados</h3>
+    <p>Animais Mortos Pré-Desmama: {{ AnimaisMortosPreDesmama() }}</p>
+    <p>Intervalo Entre Partos: {{ IntervaloEntrePartos() }}</p>
+    <p>Taxa de Natalidade Multiparas: {{ TaxaNatalidadeMultiparas() }}</p>
+    <p>Taxa de Reprodução de Descartes Matrizes: {{ TaxaReproducaoDescartesMatrizes() }}</p>
+    <p>Taxa de Lotação Área Pasto: {{ TaxaLotacaoAreaPasto() }}</p>
+    <p>Taxa de Lotação em Área Total: {{ TaxaLotacaoEmAreaTotal() }}</p>
+</div>
+}
