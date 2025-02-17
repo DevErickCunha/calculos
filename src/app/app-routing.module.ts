@@ -4,6 +4,7 @@ import { CalculosComponent } from './calculos/calculos.component';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path:"login",
         component: LoginComponent
+      },
+      {
+        path:"cadastro",
+        component: CadastroComponent
       },
       {
         path: "",

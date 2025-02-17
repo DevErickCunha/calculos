@@ -1,0 +1,71 @@
+<div class="flex h-screen items-center justify-center bg-gray-100">
+    <div class="w-1/3 flex flex-col items-center justify-center bg-white p-4 shadow-lg rounded-lg">
+        <mat-card class="w-full p-4">
+        <div class="text-center mb-2">
+            <h1 class="text-lg font-bold">Cadastro</h1>
+        </div>
+
+        <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="flex flex-col items-center">
+            <!-- Nome -->
+            <mat-form-field class="w-full mb-3" appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" type="text" required>
+            @if (cadastroForm.get('nome')?.hasError('required')) {
+                <mat-error class="ml-0">Escreva um nome válido.</mat-error>
+            } @else if (cadastroForm.get('nome')?.hasError('minlength')) {
+                <mat-error class="ml-0">O nome deve ter pelo menos 3 caracteres.</mat-error>
+            }
+            </mat-form-field>
+
+            <!-- Email -->
+            <mat-form-field class="w-full mb-3" appearance="outline">
+            <mat-label>Endereço de email</mat-label>
+            <input matInput formControlName="email" type="email" required>
+            @if (cadastroForm.get('email')?.hasError('required')) {
+                <mat-error class="ml-0">Escreva um email válido.</mat-error>
+            } @else if (cadastroForm.get('email')?.hasError('email')) {
+                <mat-error class="ml-0">Endereço de email inválido.</mat-error>
+            }
+            </mat-form-field>
+
+            <!-- Senha -->
+            <mat-form-field class="w-full mb-3" appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="senha" required>
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+                <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            @if (cadastroForm.get('senha')?.hasError('required')) {
+                <mat-error class="ml-0">Senha é obrigatória.</mat-error>
+            } @else if (cadastroForm.get('senha')?.hasError('minlength')) {
+                <mat-error class="ml-0">A senha precisa ter no mínimo 6 caracteres.</mat-error>
+            }
+            </mat-form-field>
+
+            <!-- Repetir Senha -->
+            <mat-form-field class="w-full mb-3" appearance="outline">
+            <mat-label>Repetir Senha</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="repetirSenha" required>
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+                <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            @if (cadastroForm.get('repetirSenha')?.hasError('required')) {
+                <mat-error class="ml-0">Repetir a senha é obrigatório.</mat-error>
+            } @else if (cadastroForm.get('repetirSenha')?.hasError('mismatch')) {
+                <mat-error class="ml-0">As senhas não coincidem.</mat-error>
+            }
+            </mat-form-field>
+
+            <!-- Botão Cadastrar -->
+            <button mat-flat-button color="primary" class="w-1/2 h-10 mt-2" [disabled]="cadastroForm.invalid">
+            Cadastrar
+            </button>
+
+            <!-- Botão Voltar -->
+            <button mat-flat-button color="accent" class="w-1/2 h-10 mt-2" (click)="voltar()">
+            Voltar
+            </button>
+        </form>
+        </mat-card>
+    </div>
+</div>

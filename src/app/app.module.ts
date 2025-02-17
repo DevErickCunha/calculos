@@ -20,6 +20,7 @@ import { Input1Component } from './utils/forms/input-1/input-1.component';
 import { UtilsModule } from './utils/utils.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatCardModule } from '@angular/material/card';
     CalculosComponent,
     LoginComponent,
     LayoutComponent,
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,
