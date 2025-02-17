@@ -1,44 +1,42 @@
-<form class="example-form">
-    <mat-form-field  appearance="outline" class="example-full-width">
-        <mat-label>Company (disabled)</mat-label>
-        <input matInput disabled value="Google">
-    </mat-form-field>
-    
-    <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field  appearance="outline" class="example-full-width">
-        <mat-label>First name</mat-label>
-        <input matInput>
-        </mat-form-field></td>
-        <td><mat-form-field  appearance="outline" class="example-full-width">
-        <mat-label>Long Last Name That Will Be Truncated</mat-label>
-        <input matInput>
-        </mat-form-field></td>
-    </tr></table>
-    
-    <p>
-        <mat-form-field  appearance="outline" class="example-full-width">
-        <mat-label>Address</mat-label>
-        <textarea matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
-        </mat-form-field>
-        <mat-form-field  appearance="outline" class="example-full-width">
-        <mat-label>Address 2</mat-label>
-        <textarea matInput></textarea>
-        </mat-form-field>
-    </p>
-    
-    <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field  appearance="outline" class="example-full-width">
-        <mat-label>City</mat-label>
-        <input matInput placeholder="Ex. San Francisco">
-        </mat-form-field></td>
-        <td><mat-form-field  appearance="outline" class="example-full-width">
-        <mat-label>State</mat-label>
-        <input matInput placeholder="Ex. California">
-        </mat-form-field></td>
-        <td><mat-form-field  appearance="outline" class="example-full-width">
-        <mat-label>Postal Code</mat-label>
-        <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
-        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-        </mat-form-field></td>
-    </tr></table>
-</form>
+<div class="flex min-h-screen items-start justify-center bg-gray-100">
+    <div class="w-1/3 flex flex-col items-center justify-center bg-white p-8 shadow-lg rounded-lg mt-16"> <!-- Margem superior adicionada aqui -->
+        <mat-card class="w-full p-6">
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-bold">Login</h1>
+                <img src="assets/images/logo.png" alt="Logo" class="w-24 mx-auto mt-2">
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <!-- Email -->
+                <mat-form-field class="w-full mb-4" appearance="outline">
+                    <mat-label>Endereço de email</mat-label>
+                    <input matInput formControlName="email" type="email" required>
+                </mat-form-field>
+
+                <!-- Senha -->
+                <mat-form-field class="w-full mb-2" appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+                        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <!-- Botão Entrar -->
+                <button routerLink="#" mat-flat-button color="primary" class="w-full h-12 mt-1" [disabled]="loginForm.invalid">
+                    Entrar
+                </button>
+                <button routerLink="#" mat-flat-button color="primary" class="w-full h-12 mt-4" [disabled]="loginForm.invalid">
+                    Cadastrar
+                </button>
+
+                <!-- Esqueceu a senha -->
+                <div class="text-center mt-4 text-sm">
+                    <a href="#" class="text-gray-500 hover:underline">Esqueceu sua senha?</a>
+                    <span class="mx-2">|</span>
+                    <a href="#" class="text-green-600 font-semibold hover:underline">Redefina-a aqui</a>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

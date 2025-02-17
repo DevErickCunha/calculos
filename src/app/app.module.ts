@@ -19,6 +19,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { Input1Component } from './utils/forms/input-1/input-1.component';
 import { UtilsModule } from './utils/utils.module';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatSelectModule,
     UtilsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync()
