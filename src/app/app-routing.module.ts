@@ -5,12 +5,11 @@ import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { PaiComponent } from './pai/pai.component';
-import { ModalComponent } from './modal/modal.component';
 
 const routes: Routes = [
 
   {
-    path:"",
+    path:"app",
     component: LayoutComponent,
     children: [
       {
@@ -26,24 +25,15 @@ const routes: Routes = [
         component: LoginComponent
       },
       {
-        path:"modal",
-        component: ModalComponent
-      },
-      {
         path:"cadastro",
         component: CadastroComponent
-      },
-      {
-        path: "",
-        redirectTo: "home",
-        pathMatch: "full"
       }
     ]
   },
 
   {
     path:"**",
-    redirectTo:"home"
+    redirectTo:"app/home"
   }
 ];
 

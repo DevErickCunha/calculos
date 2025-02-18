@@ -1,8 +1,11 @@
 <button mat-button (click)="openDialog()">Abrir Modal</button>
 
 <!-- Exibindo os dados recebidos do modal -->
-<div *ngIf="formData" class="mt-4 p-4 bg-gray-100 rounded">
-    <h3 class="font-bold">Dados Recebidos:</h3>
-    <p><strong>Nome:</strong> {{ formData.name }}</p>
-    <p><strong>Email:</strong> {{ formData.email }}</p>
-</div>
+    @for (item of listaDeFormularios; track idx; let idx = $index ) {
+        <div  class="mt-4 p-4 bg-gray-100 rounded">
+            <li>{{ item.name }}</li>
+            <li>{{ item.email }}</li>
+        </div>
+        } @empty {
+        <li>There are no items.</li>
+        }

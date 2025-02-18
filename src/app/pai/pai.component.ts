@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from './../modal/modal.component';
+
+
+export interface form {
+  name: string;
+  email: string;
+  };
 
 @Component({
   selector: 'app-pai',
@@ -8,9 +14,10 @@ import { ModalComponent } from './../modal/modal.component';
   styleUrl: './pai.component.scss'
 })
 export class PaiComponent {
-  formData: any = null;
+  listaDeFormularios: form[] = [];
+  readonly dialog = inject(MatDialog);
 
-  constructor(public dialog: MatDialog) {}
+  constructor(){}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalComponent, {
@@ -18,10 +25,12 @@ export class PaiComponent {
       data: {} // Você pode passar dados iniciais aqui, se necessário
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: form) => {
+      console.log(result);
+
       if (result) {
-        this.formData = result;  // Dados retornados do modal
-        console.log('Dados recebidos do modal:', this.formData);
+        this.listaDeFormularios.push(result);  // Dados retornados do modal
+        console.log('Dados recebidos do modal:', this.listaDeFormularios);
       }
     });
   }
