@@ -21,6 +21,8 @@ import { UtilsModule } from './utils/utils.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { ModalComponent } from './modal/modal.component';
+import { PaiComponent } from './pai/pai.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     LoginComponent,
     LayoutComponent,
     CadastroComponent,
+    ModalComponent,
+    PaiComponent,
   ],
   imports: [
     BrowserModule,
