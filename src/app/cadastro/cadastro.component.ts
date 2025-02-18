@@ -47,10 +47,10 @@ export class CadastroComponent {
     this.cadastroForm.reset();
 
     // Opcional: Navega para a página de login após o cadastro
-    this.router.navigate(['/login']);
+    this.router.navigate(['/app/login']);
   }
 
   voltar() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/app/login']);
   }
 }

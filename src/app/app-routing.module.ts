@@ -33,7 +33,8 @@ const routes: Routes = [
 
   {
     path:"**",
-    redirectTo:"app/home"
+    redirectTo:"app/home",
+    pathMatch:"full"
   }
 ];
 
